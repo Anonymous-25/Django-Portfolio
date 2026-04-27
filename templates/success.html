@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submission Received | Thank You</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    :root {
+      --bg: #1f2330;
+      --card: rgba(40, 42, 54, 0.92);
+      --border: rgba(189, 147, 249, 0.18);
+      --primary: #ff79c6;
+      --secondary: #bd93f9;
+      --text: #f8f8f2;
+      --muted: #b8b8c7;
+      --success: #50fa7b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: 'Source Code Pro', monospace;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(255,121,198,0.08), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(189,147,249,0.08), transparent 30%),
+        var(--bg);
+    }
+    .container {
+      width: min(680px, 100%);
+      text-align: center;
+      padding: 3rem 2.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,121,198,0.05), rgba(189,147,249,0.05));
+      pointer-events: none;
+    }
+    .icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      color: var(--success);
+      background: rgba(80, 250, 123, 0.08);
+      border: 1px solid rgba(80, 250, 123, 0.25);
+    }
+    .title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin: 0 auto 2rem;
+      max-width: 520px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.9rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 10px 24px rgba(189, 147, 249, 0.22);
+      transition: all 0.25s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(255, 121, 198, 0.28);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">✓</div>
+    <h1 class="title">Submission Received</h1>
+    <p class="subtitle">
+      Thank you for reaching out. Your message has been received successfully,
+      and I will review it carefully before getting back to you as soon as possible.
+    </p>
+    <a href="/" class="btn">
+      Return to Home
+    </a>
+  </div>
+</body>
+</html>
