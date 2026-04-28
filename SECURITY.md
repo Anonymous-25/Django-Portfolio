@@ -56,3 +56,52 @@ If you are running this project locally or in production:
 - Keep dependencies updated:
   ```bash
   pip install --upgrade -r requirements.txt
+  ```
+
+---
+
+## 🤝 Usage & Contribution Policy
+
+This project is **open for learning, usage, and contribution**.
+
+You are allowed to:
+
+- ✅ Use this project for personal or commercial purposes  
+- ✅ Modify and customize it for your needs  
+- ✅ Contribute improvements via pull requests  
+
+However:
+
+- ❌ You must not claim this project as your own original work  
+- ❌ You must not remove original credits or license information  
+- ❌ You must not redistribute it as a standalone product without attribution  
+
+> Proper credit to the original repository and author is required.
+
+---
+
+## 🙌 Responsible Disclosure
+
+We appreciate responsible disclosure and will:
+
+- Acknowledge your report  
+- Investigate the issue  
+- Fix it as soon as possible  
+- Credit you (if you want)  
+
+---
+
+## ⚠️ Disclaimer
+
+This project is provided **as-is** without any guarantees of security. Users are responsible for securing their own deployments.
+
+---
+
+## 💜 Credits
+
+UI theme inspired by **Dracula Theme Community**  
+Design inspiration from **GitHub vCard-style layouts**
+
+---
+
+**Stay secure & happy coding 🚀**
