@@ -1,11 +1,27 @@
-## Description
-What changes did you make?
+## 🚀 Description
+Explain what you changed and why.
 
-## Type
+---
+
+## 🔧 Type of Change
 - [ ] Bug fix
-- [ ] Feature
-- [ ] UI Improvement
+- [ ] New feature
+- [ ] UI/UX improvement
+- [ ] Documentation update
 
-## Checklist
-- [ ] Tested
-- [ ] No errors
+---
+
+## 🧪 Testing
+- [ ] Tested locally
+- [ ] No errors in console
+- [ ] Works as expected
+
+---
+
+## 📸 Screenshots (if UI change)
+Add screenshots here
+
+---
+
+## 📌 Notes
+Any extra info for reviewer
