@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome - Portfolio CMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #282a36;
+  --card: #21222c;
+  --border: #44475a;
+  --text: #f8f8f2;
+  --accent: #ff79c6;
+  --purple: #bd93f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: var(--accent);
+  text-align: center;
+}
+
+h2 {
+  color: var(--purple);
+}
+
+p {
+  color: #ccc;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.code {
+  background: #111;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+a.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, var(--accent), var(--purple));
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Intro -->
+  <div class="card">
+    <h1>👋 Welcome to Django Portfolio CMS</h1>
+    <p style="text-align:center;">
+      Your database is empty. Follow this step-by-step guide to set up your portfolio 🚀
+    </p>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="card">
+    <h2>📦 Step 1: Download the Project</h2>
+
+    <p>Open your terminal or command prompt and run:</p>
+
+    <div class="code">
+git clone https://github.com/Anonymous-25/Django-Portfolio.git
+    </div>
+
+    <p>This command downloads the project to your computer.</p>
+
+    <div class="code">
+cd Django-Portfolio
+    </div>
+
+    <p>This moves you into the project folder.</p>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="card">
+    <h2>🐍 Step 2: Create Virtual Environment</h2>
+
+    <p>Create a virtual environment (isolated Python environment):</p>
+
+    <div class="code">
+python -m venv venv
+    </div>
+
+    <p>Activate it:</p>
+
+    <div class="code">
+# Windows
+venv\Scripts\activate
+
+# Mac/Linux
+source venv/bin/activate
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="card">
+    <h2>📥 Step 3: Install Dependencies</h2>
+
+    <p>Install required Python packages:</p>
+
+    <div class="code">
+pip install -r requirements.txt
+    </div>
+
+    <p>This installs Django and other libraries used in the project.</p>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="card">
+    <h2>🗄 Step 4: Setup Database</h2>
+
+    <p>Run migrations to create database tables:</p>
+
+    <div class="code">
+python manage.py migrate
+    </div>
+
+    <p>This creates all necessary tables like Profile, Skills, Projects, etc.</p>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="card">
+    <h2>👤 Step 5: Create Admin User</h2>
+
+    <p>Create a superuser account:</p>
+
+    <div class="code">
+python manage.py createsuperuser
+    </div>
+
+    <p>Enter username, email, and password when asked.</p>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="card">
+    <h2>🚀 Step 6: Run Server</h2>
+
+    <div class="code">
+python manage.py runserver
+    </div>
+
+    <p>Open your browser and go to:</p>
+
+    <div class="code">
+http://127.0.0.1:8000/
+    </div>
+  </div>
+
+  <!-- Step 7 -->
+  <div class="card">
+    <h2>🔐 Step 7: Login to Admin Panel</h2>
+
+    <p>Click below and login using the superuser you created:</p>
+
+    <a href="/admin/" class="btn">Go to Admin Panel</a>
+  </div>
+
+  <!-- Step 8 -->
+  <div class="card">
+    <h2>🧩 Step 8: Add Your Data</h2>
+
+    <p>Start adding data in this order:</p>
+
+    <ul>
+      <li>Profile (most important)</li>
+      <li>Skills</li>
+      <li>Experience</li>
+      <li>Education</li>
+      <li>Projects</li>
+      <li>Articles</li>
+    </ul>
+
+    <p>Once you add any data, your main portfolio UI will automatically appear.</p>
+  </div>
+
+  <!-- Step 9 -->
+  <div class="card">
+    <h2>⚡ How It Works</h2>
+
+    <ul>
+      <li>No data → You see this guide page</li>
+      <li>Any data added → Main portfolio UI loads</li>
+    </ul>
+  </div>
+
+  <!-- Credits -->
+  <div class="card" style="text-align:center;">
+    <h2>👾 Credits</h2>
+
+    <p>
+      UI colors inspired by <b style="color:#ff79c6;">Dracula Theme</b><br>
+      Layout inspired by <b style="color:#bd93f9;">vCard Portfolio UI</b>
+    </p>
+
+    <p style="font-size:14px; color:#888;">
+      Thanks to the open-source community ✨
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>

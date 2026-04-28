@@ -19,48 +19,67 @@ def contactform(request):
     return render(request,"success.html")
 
 def Data(request):
-    # ================ [ Personal Information ] ================
-    Profile_data = Profile.objects.all()
-    Education_data = Education.objects.all()
-    Certification_data = Certification.objects.all()
-    Experience_data = Experience.objects.all()
-    Skill_data = Skill.objects.all()
+    has_data = (
+        Profile.objects.exists() or 
+        Education.objects.exists() or 
+        Certification.objects.exists() or 
+        Experience.objects.exists() or 
+        Skill.objects.exists() or 
+        WebSettings.objects.exists() or 
+        SEOSettings.objects.exists() or 
+        PortfolioCategory.objects.exists() or 
+        Portfolio.objects.exists() or 
+        Work.objects.exists() or 
+        Category.objects.exists() or 
+        Tag.objects.exists() or 
+        Article.objects.exists() or 
+        Profile_url.objects.exists()
+    )
+    if has_data:
+        # ================ [ Personal Information ] ================
+        Profile_data = Profile.objects.all()
+        Education_data = Education.objects.all()
+        Certification_data = Certification.objects.all()
+        Experience_data = Experience.objects.all()
+        Skill_data = Skill.objects.all()
 
-    # ================ [ website settings ] ================
-    WebSettings_data = WebSettings.objects.first()
-    SEOSettings_data = SEOSettings.objects.all()
+        # ================ [ website settings ] ================
+        WebSettings_data = WebSettings.objects.first()
+        SEOSettings_data = SEOSettings.objects.all()
 
-    # ================ [ Project ] ================
-    PortfolioCategory_data = PortfolioCategory.objects.all()
-    Portfolio_data = Portfolio.objects.all()
-    Work_data = Work.objects.all()
+        # ================ [ Project ] ================
+        PortfolioCategory_data = PortfolioCategory.objects.all()
+        Portfolio_data = Portfolio.objects.all()
+        Work_data = Work.objects.all()
 
-    # ================ [ Article ] ================
-    Category_data = Category.objects.all()
-    Tag_data = Tag.objects.all()    
-    Article_data = Article.objects.all().order_by('-id')
-    Profile_url_data = Profile_url.objects.all()[:1]
-    data = {
-        'Profile_data':Profile_data,
-        'Education_data':Education_data,
-        'Certification_data':Certification_data,
-        'Experience_data':Experience_data,
-        'Skill_data':Skill_data,
+        # ================ [ Article ] ================
+        Category_data = Category.objects.all()
+        Tag_data = Tag.objects.all()    
+        Article_data = Article.objects.all().order_by('-id')
+        Profile_url_data = Profile_url.objects.all()[:1]
+        data = {
+            'Profile_data':Profile_data,
+            'Education_data':Education_data,
+            'Certification_data':Certification_data,
+            'Experience_data':Experience_data,
+            'Skill_data':Skill_data,
 
-        'WebSettings_data':WebSettings_data,
-        'SEOSettings_data':SEOSettings_data,
+            'WebSettings_data':WebSettings_data,
+            'SEOSettings_data':SEOSettings_data,
 
-        'PortfolioCategory_data':PortfolioCategory_data,
-        'Portfolio_data':Portfolio_data,
-        'Work_data':Work_data,
+            'PortfolioCategory_data':PortfolioCategory_data,
+            'Portfolio_data':Portfolio_data,
+            'Work_data':Work_data,
 
-        'Category_data':Category_data,
-        'Tag_data':Tag_data,
-        'Article_data':Article_data,
+            'Category_data':Category_data,
+            'Tag_data':Tag_data,
+            'Article_data':Article_data,
 
-        'Profile_url_data':Profile_url_data,
-    }
-    return render(request,"index.html",data)
+            'Profile_url_data':Profile_url_data,
+        }
+        return render(request,"index.html",data)
+    else:
+        return render(request, "welcome.html")
 def robots_txt(request):
     robot_text = SEOSettings_data.robots()
     return HttpResponse(
