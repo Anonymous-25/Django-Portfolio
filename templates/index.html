@@ -766,16 +766,36 @@
       border-radius: 8px;
     }
     .select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
-    .project-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      margin-bottom: 10px;
+    .project-list{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+        gap:24px;
+        width:100%;
     }
-    .project-item { display: none; }
-    .project-item.active {
-      display: block;
-      animation: scaleUp 0.25s ease forwards;
+    .project-item{
+        display:none;
+        min-width:0;
+    }
+    .project-item.active{
+        display:block;
+        animation:scaleUp .25s ease forwards;
+    }
+    .project-item > a{
+        display:flex;
+        flex-direction:column;
+        height:100%;
+        width:100%;
+        min-width:0;
+        overflow:hidden;
+        border-radius:20px;
+        background:#1e1f29;
+        border:1px solid rgba(255,255,255,.08);
+        box-sizing:border-box;
+    }
+    @media (max-width:768px){
+        .project-list{
+            grid-template-columns:1fr;
+        }
     }
     @keyframes scaleUp {
       0% { transform: scale(0.5); }
@@ -1631,58 +1651,142 @@
               {% endfor %}
             </ul>
           </div>
-<ul class="project-list" style="display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 25px !important; width: 100% !important; max-width: 100% !important; padding: 0; margin: 0; box-sizing: border-box;">
-
-  {% for project in Portfolio_data %}
-  <li class="project-item active" data-filter-item data-category="{% for cat in project.categories.all %}{{ cat.slug }}{% if not forloop.last %} {% endif %}{% endfor %}" style="margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; list-style: none; box-sizing: border-box;">
-    <a href="{{ project.github_url|default:'#' }}" style="display: flex; flex-direction: column; background: #1e1f29; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; overflow: hidden; text-decoration: none; height: 100%; box-sizing: border-box; width: 100%;">
-
-      <figure class="project-img" style="position: relative; width: 100% !important; height: 220px !important; min-height: 220px !important; max-height: 220px !important; margin: 0; overflow: hidden; border-radius: 0 !important;">
-
-        <div class="project-item-icon-box">
-          <ion-icon name="eye-outline"></ion-icon>
-        </div>
-
-        <img src="{{ project.project_image }}" alt="{{ project.title }}" loading="lazy" style="width: 100% !important; height: 100% !important; object-fit: cover !important; display: block;">
-
-        <div style="position: absolute; top: 15px; left: 15px; background: rgba(30, 31, 41, 0.85); color: #d6d6d6; padding: 4px 12px; font-size: 11px; font-weight: 500; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08); z-index: 2; pointer-events: none;">
-          {% for cat in project.categories.all %}
-            {{ cat.name }}{% if not forloop.last %}, {% endif %}
-          {% empty %}
-            No category
-          {% endfor %}
-        </div>
-      </figure>
-
-      <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; box-sizing: border-box; width: 100%;">
-
-        <div style="width: 100%;">
-          <h3 style="color: #f8f8f2; font-size: 18px; font-weight: 600; margin: 0 0 8px 0; font-family: 'Poppins', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">
-            {{ project.title }}
-          </h3>
-
-          <p style="color: #9b9b9b; font-size: 13px; line-height: 1.5; margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 38px; min-height: 38px; max-height: 38px;">
-            {{ project.description|truncatewords:10 }}
-          </p>
-        </div>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; width: 100%;">
-          <span style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--orange-yellow-crayola, #ff79c6); font-size: 11px; padding: 4px 10px; border-radius: 6px; font-family: monospace; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box;">
-            {{ project.technologies }}
-          </span>
-        </div>
-
-      </div>
-
-    </a>
-  </li>
-  {% endfor %}
-
-</ul>
+          <ul class="project-list">
+            {% for project in Portfolio_data %}
+            <li class="project-item active" data-filter-item data-category="{% for cat in project.categories.all %}{{ cat.slug }}{% if not forloop.last %} {% endif %}{% endfor %}">
+              <a href="{{ project.github_url|default:'#' }}"
+                 style="
+                  display:flex;
+                  flex-direction:column;
+                  width:100%;
+                  height:100%;
+                  background:#1e1f29;
+                  border:1px solid rgba(255,255,255,.08);
+                  border-radius:20px;
+                  overflow:hidden;
+                  text-decoration:none;
+                  box-sizing:border-box;
+                  transition:.3s ease;
+                 ">
+            <div style="
+                position:relative;
+                width:100%;
+                aspect-ratio:16/9;
+                overflow:hidden;
+                flex-shrink:0;
+            ">
+                <div style="
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%,-50%) scale(.8);
+                    width:60px;
+                    height:60px;
+                    border-radius:12px;
+                    background:rgba(30,31,41,.95);
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    opacity:0;
+                    transition:.3s ease;
+                    z-index:3;
+                    pointer-events:none;
+                " class="project-eye">
+                    <ion-icon
+                        name="eye-outline"
+                        style="font-size:28px;color:#ff79c6;">
+                    </ion-icon>
+                </div>
+                <div style="
+                    position:absolute;
+                    inset:0;
+                    background:rgba(0,0,0,0);
+                    transition:.3s ease;
+                    z-index:2;
+                " class="project-overlay"></div>
+                <img src="{{ project.project_image }}"
+                     alt="{{ project.title }}"
+                     loading="lazy"
+                     style="
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                        display:block;
+                        transition:.4s ease;
+                     "
+                     class="project-image">
+                <div style="
+                    position:absolute;
+                    top:15px;
+                    left:15px;
+                    background:rgba(30,31,41,.85);
+                    color:#d6d6d6;
+                    padding:4px 12px;
+                    border-radius:8px;
+                    font-size:11px;
+                    border:1px solid rgba(255,255,255,.08);
+                    z-index:4;
+                ">
+                    {% for cat in project.categories.all %}
+                      {{ cat.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+                <div style="
+                  padding:20px;
+                  display:flex;
+                  flex-direction:column;
+                  flex-grow:1;
+                ">
+                  <h3 style="
+                    color:#f8f8f2;
+                    font-size:18px;
+                    font-weight:600;
+                    margin:0 0 10px;
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                  ">
+                    {{ project.title }}
+                  </h3>
+                  <p style="
+                    color:#9b9b9b;
+                    font-size:13px;
+                    line-height:1.6;
+                    margin:0 0 16px;
+                    display:-webkit-box;
+                    -webkit-line-clamp:2;
+                    -webkit-box-orient:vertical;
+                    overflow:hidden;
+                  ">
+                    {{ project.description|truncatewords:15 }}
+                  </p>
+                  <div style="
+                    margin-top:auto;
+                    display:flex;
+                    flex-wrap:wrap;
+                    gap:6px;
+                  ">
+                    <span style="
+                      background:rgba(255,255,255,.05);
+                      border:1px solid rgba(255,255,255,.08);
+                      color:#ff79c6;
+                      padding:4px 10px;
+                      border-radius:6px;
+                      font-size:11px;
+                      font-family:monospace;
+                    ">
+                      {{ project.technologies }}
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
         </section>
         {% endif %}
       </article>
-
       <article class="articles" data-page="articles">
         <header>
           <h2 class="h2 article-title">Articles</h2>
