@@ -778,21 +778,20 @@
     }
     .project-item.active{
         display:block;
-        animation:scaleUp .25s ease forwards;
+        animation:scaleUp .25s ease forwards;}
+    .project-item:hover .project-overlay{
+        background:rgba(0,0,0,.45);
     }
-    .project-item > a{
-        display:flex;
-        flex-direction:column;
-        height:100%;
-        width:100%;
-        min-width:0;
-        overflow:hidden;
-        border-radius:20px;
-        background:#1e1f29;
-        border:1px solid rgba(255,255,255,.08);
-        box-sizing:border-box;
+
+    .project-item:hover .project-eye{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
     }
-    @media (max-width:768px){
+
+    .project-item:hover .project-image{
+        transform:scale(1.08);
+    }
+        @media (max-width:768px){
         .project-list{
             grid-template-columns:1fr;
         }
@@ -1654,27 +1653,29 @@
           <ul class="project-list">
             {% for project in Portfolio_data %}
             <li class="project-item active" data-filter-item data-category="{% for cat in project.categories.all %}{{ cat.slug }}{% if not forloop.last %} {% endif %}{% endfor %}">
-              <a href="{{ project.github_url|default:'#' }}"
-                 style="
-                  display:flex;
-                  flex-direction:column;
+              <div
+                  style="
+                    display:flex;
+                    flex-direction:column;
+                    width:100%;
+                    height:100%;
+                    background:#1e1f29;
+                    border:1px solid rgba(255,255,255,.08);
+                    border-radius:20px;
+                    overflow:hidden;
+                    box-sizing:border-box;
+                    transition:.3s ease;
+                  ">
+            <a href="{{ project.live_demo_url|default:project.github_url }}"
+               target="_blank"
+               style="
+                  position:relative;
                   width:100%;
-                  height:100%;
-                  background:#1e1f29;
-                  border:1px solid rgba(255,255,255,.08);
-                  border-radius:20px;
+                  aspect-ratio:16/9;
                   overflow:hidden;
-                  text-decoration:none;
-                  box-sizing:border-box;
-                  transition:.3s ease;
-                 ">
-            <div style="
-                position:relative;
-                width:100%;
-                aspect-ratio:16/9;
-                overflow:hidden;
-                flex-shrink:0;
-            ">
+                  flex-shrink:0;
+                  display:block;
+               ">
                 <div style="
                     position:absolute;
                     top:50%;
@@ -1731,7 +1732,7 @@
                       {{ cat.name }}{% if not forloop.last %}, {% endif %}
                     {% endfor %}
                 </div>
-            </div>
+            </a>
                 <div style="
                   padding:20px;
                   display:flex;
@@ -1762,11 +1763,66 @@
                     {{ project.description|truncatewords:15 }}
                   </p>
                   <div style="
-                    margin-top:auto;
-                    display:flex;
-                    flex-wrap:wrap;
-                    gap:6px;
-                  ">
+                        margin-top:auto;
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        gap:12px;
+                        flex-wrap:wrap;
+                    ">
+
+                        <!-- GitHub Icon -->
+                        {% if project.github_url %}
+                        <a href="{{ project.github_url }}"
+                           target="_blank"
+                           onclick="event.stopPropagation();"
+                           style="
+                              display:flex;
+                              align-items:center;
+                              justify-content:center;
+                              width:42px;
+                              height:42px;
+                              border-radius:10px;
+                              background:rgba(255,255,255,.05);
+                              border:1px solid rgba(255,255,255,.08);
+                              color:#fff;
+                              transition:.3s;
+                           ">
+                            <ion-icon name="logo-github" style="font-size:22px;"></ion-icon>
+                        </a>
+                        {% endif %}
+
+                        <!-- Live Demo Button -->
+                        {% if project.live_demo_url %}
+                        <a href="{{ project.live_demo_url }}"
+                           target="_blank"
+                           onclick="event.stopPropagation();"
+                           style="
+                              padding:10px 18px;
+                              border-radius:10px;
+                              display:flex;
+                              background:#ff4d6d;
+                              color:white;
+                              font-size:14px;
+                              width:75%;
+                              height:42px;
+                              font-weight:600;
+                              text-decoration:none;
+                              transition:.3s;
+                              white-space:nowrap;
+                           ">
+                            Live Demo&nbsp;&nbsp;&nbsp;
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        {% endif %}
+
+                    </div>
+                  <div style="
+                      margin-top:12px;
+                      display:flex;
+                      flex-wrap:wrap;
+                      gap:6px;
+                    ">
                     <span style="
                       background:rgba(255,255,255,.05);
                       border:1px solid rgba(255,255,255,.08);
@@ -1780,7 +1836,7 @@
                     </span>
                   </div>
                 </div>
-              </a>
+              </div>
             </li>
             {% endfor %}
           </ul>
