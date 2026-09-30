@@ -19,19 +19,25 @@
 
 See [INSTALL.md](INSTALL.md)
 
-## Contributing
 
-Pull requests are welcome.
+## Team
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md).
+This Dracula themed app is maintained by the following person(s) and themed by [Dracula theme](https://github.com/dracula/).
 
-## Author
+| [![Anonymous2583](https://avatars.githubusercontent.com/u/193625080?v=4&size=64)](https://github.com/Anonymous-25/) |
+| ---------------------------------------------------------------------------------- |
+| [Anonymous2583](https://github.com/Anonymous-25/ )                                             |
 
-Dhruv Meghwal
+## Community
 
-- GitHub: https://github.com/Anonymous-25
-- Website: https://anonymous2583.pythonanywhere.com
+- [Twitter](https://twitter.com/draculatheme) - Best for getting updates about themes and new stuff.
+- [GitHub](https://github.com/dracula/dracula-theme/discussions) - Best for asking questions and discussing issues.
+- [Discord](https://draculatheme.com/discord-invite) - Best for hanging out with the community.
+
+## Dracula PRO
+
+[![Dracula PRO](https://github.com/dracula/chatgpt/raw/main/.github/dracula-pro.png)](https://draculatheme.com/pro)
 
 ## License
 
-MIT
+[MIT License](./LICENSE)
