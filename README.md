@@ -1,117 +1,37 @@
-<img width="1592" height="738" alt="image" src="https://github.com/user-attachments/assets/53bd85b7-8d40-43e3-af64-157929a21e34" />
+# Django Portfolio
 
-# 🚀 Django Portfolio CMS
+> A modern Django-powered portfolio, blog, and project showcase platform.
 
-A fully dynamic personal portfolio CMS built with **Django**. 
-Easily manage your profile, skills, projects, and articles through the admin panel—no hardcoding required.
+![screenshot.png](https://private-user-images.githubusercontent.com/193625080/584723568-53bd85b7-8d40-43e3-af64-157929a21e34.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTA3NTg3MDYsIm5iZiI6MTc5MDc1ODQwNiwicGF0aCI6Ii8xOTM2MjUwODAvNTg0NzIzNTY4LTUzYmQ4NWI3LThkNDAtNDNlMy1hZjY0LTE1NzkyOWEyMWUzNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwOTMwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDkzMFQwODUzMjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zNzAxZDY2NzI2MjNhYmFjMTUyZThiNmM5ZjIyZTQwYzBkNDRlYTMzMDU3YzgyZDVlNzcxZDI3MTY4NzU1OWE5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.YFhKOG8aZDEc-3OTsz0mzI0_sBCOGS_oKzxURLVB3X0)
 
----
+## Features
 
-## 🎨 UI & Design
-* **🧛 Dracula Theme:** Inspired color palette for a sleek, dark aesthetic.
-* **🧾 vCard Style:** Modern vCard-style portfolio layout.
-* **📱 Responsive:** Fully mobile-friendly UI.
-* **✨ Glassmorphism:** Features smooth animations and glassmorphic elements.
+- Portfolio Management
+- Blog System
+- Project Showcase
+- Skills & Training Categories
+- TinyMCE Editor
+- SEO Optimization
+- Analytics Dashboard
+- Responsive Design
 
-## ⚡ Features
-* **Dynamic Content:** Entirely database-driven (no static content).
-* **Admin-Controlled:** Full management via Django Admin.
-* **Modular Sections:** Dedicated modules for Skills, Experience, and Education.
-* **Project Portfolio:** Includes categories and dynamic filtering.
-* **Blog/Articles System:** Integrated writing platform.
-* **Onboarding Logic:** Smart detection—if the database is empty, a welcome/setup guide is displayed; otherwise, the main portfolio loads.
+## Install
 
----
+See [INSTALL.md](INSTALL.md)
 
-## 📦 Installation Guide
+## Contributing
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/Anonymous-25/Django-Portfolio.git
-cd Django-Portfolio
-```
+Pull requests are welcome.
 
-### 2. Create Virtual Environment
-```bash
-python -m venv venv
+Please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
-# Windows
-venv\Scripts\activate
+## Author
 
-# Linux / Mac
-source venv/bin/activate
-```
+Dhruv Meghwal
 
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+- GitHub: https://github.com/Anonymous-25
+- Website: https://anonymous2583.pythonanywhere.com
 
-### 4. Setup Database
-```bash
-python manage.py migrate
-```
+## License
 
-### 5. Create Admin User
-```bash
-python manage.py createsuperuser
-```
-
-### 6. Run Server
-```bash
-python manage.py runserver
-```
-Visit: `http://127.0.0.1:8000/`
-
----
-
-## 🔐 Admin Panel
-Access the backend at: `http://127.0.0.1:8000/admin/`
-
-### 🧩 Recommended Setup Order
-To ensure the UI renders correctly, add data in this order:
-1.  **Profile** (Crucial for the header)
-2.  **Skills**
-3.  **Experience / Education**
-4.  **Projects**
-5.  **Articles**
-6.  **Social Links**
-
----
-
-## 🧠 Smart Rendering Logic
-The app uses `.exists()` checks in the views to determine the state of the application:
-* **Empty DB:** Renders `onboarding.html` (Setup Guide).
-* **Populated DB:** Renders `index.html` (Main UI).
-
----
-
-## 🛠 Tech Stack
-* **Backend:** Django
-* **Frontend:** HTML5, CSS3, JavaScript
-* **Database:** SQLite (Default)
-
-## 📌 Important Notes
-Ensure your `.gitignore` includes the following to avoid pushing sensitive or bulky data:
-```text
-__pycache__/
-*.pyc
-db.sqlite3
-.env
-venv/
-media/
-```
-
----
-
-## 🎯 Future Improvements
-* [ ] **REST API:** Integration with Django REST Framework.
-* [ ] **Multi-user:** Support for multiple user accounts.
-* [ ] **Markdown:** Support for Markdown in the blog editor.
-* [ ] **Analytics:** Dashboard to track project views.
-
-## 👨‍💻 Author
-**Anonymous-25** [GitHub Profile](https://github.com/Anonymous-25)
-
-## ⭐ Support
-If you find this project useful, please consider giving it a **star**! ⭐
+MIT
